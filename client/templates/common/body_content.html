@@ -1,0 +1,8 @@
+<template name="body_content">
+<!-- Prevent rendering before Polymer ready -->
+{{#if isPolymerReady }}
+    {{> dashboard }}
+{{else}}
+    {{> loading }}
+{{/if}}
+</template>

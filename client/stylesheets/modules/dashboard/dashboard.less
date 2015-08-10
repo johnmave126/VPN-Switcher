@@ -1,0 +1,39 @@
+@import (reference) "../../import.less";
+
+#rightContent {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+}
+
+#dashboard-menu  {
+    paper-item, paper-icon-item {
+        &:focus:after {
+            background: transparent;
+        }
+        padding: 0 24px;
+    }
+
+    .sublist {
+        padding: 0 0 0 22px;
+    }
+    
+    .menu-trigger {
+        cursor: default;
+    }
+    .leaf {
+        cursor: pointer;
+    }
+    & > paper-submenu {
+        & > .menu-trigger {
+            &{ border-bottom: 1px solid @-; .color-variant(lighter, @color-grey); }
+            &.iron-selected {
+                &{ color: @-; .color-variant(dark, @color-darkgreen); }
+            }
+        }
+        & > .sublist {
+            padding: 0;
+        }
+    }
+}

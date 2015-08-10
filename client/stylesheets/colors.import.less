@@ -1,0 +1,66 @@
+/* This file defines several common color to be used */
+
+/* Base Colors */
+@color-white:       hsla(0, 0%, 100%, 1);
+@color-black:       hsla(0, 0%, 0%, 1);
+@color-grey:        hsla(0, 0%, 60%, 1);
+@color-orange:      #EBAD60;
+@color-blue:        #929bbd;
+@color-cyan:        #8FBAAF;
+@color-red:         #DB8282;
+@color-purple:      #C48BB9;
+@color-green:       #A4C270;
+@color-darkgreen:   #8BAB8D;
+@color-slategray:   #2C3F52;
+
+/* Variants of Base Colors */
+@color-variant-rate: 5%;
+
+/* Because of https://github.com/less/less.js/issues/538
+ * and https://github.com/less/less.js/issues/1892, we
+ * will meet great trouble if we call a mixin with same
+ * return name in one scope. So to get a color variant,
+ * we shall always create a new scope using &
+ *
+ * Example
+ * To achive
+ * .div {
+ *   background-color: darker-grey;
+ *   color: darkest-blue;
+ * }
+ * We will write
+ * .div {
+ *   &{ background-color: @-; .color-variant(darker, @color-grey); }
+ *   &{ color: @-; .color-variant(darkest, @color-blue); }
+ * }
+ *
+ * In case we need more than one color variants in one property,
+ * well, I believe there should be subproperty that we can split
+ * the return value
+ *
+ * TODO: Fix calling convention after issues are fixed
+ */
+.color-variant(@mode, @color) when(@mode = dark) {
+    @-: darken(@color, @color-variant-rate);
+}
+
+.color-variant(@mode, @color) when(@mode = darker) {
+    @-: darken(@color, 2 * @color-variant-rate);
+}
+
+.color-variant(@mode, @color) when(@mode = darkest) {
+    @-: darken(@color, 3 * @color-variant-rate);
+}
+
+.color-variant(@mode, @color) when(@mode = light) {
+    @-: lighten(@color, @color-variant-rate);
+}
+
+.color-variant(@mode, @color) when(@mode = lighter) {
+    @-: lighten(@color, 2 * @color-variant-rate);
+}
+
+.color-variant(@mode, @color) when(@mode = lightest) {
+    @-: lighten(@color, 3 * @color-variant-rate);
+}
+

@@ -1,0 +1,17 @@
+<template name="dashboard_drawer_VPN">
+<paper-menu class="menu-content sublist">
+    {{#each children}}
+        {{#if hasChildren this}}
+            <paper-submenu>
+                <paper-item class="menu-trigger">
+                    <div class="flex">{{dispName}}</div>
+                    <iron-icon icon="arrow-drop-down"></iron-icon>
+                </paper-item>
+                {{> dashboard_drawer_VPN parent=this}}
+            </paper-submenu>
+        {{else}}
+            <paper-item class="leaf" x-category="{{_id}}">{{dispName}}</paper-item>
+        {{/if}}
+    {{/each}}
+</paper-menu>
+</template>

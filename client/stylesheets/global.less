@@ -1,0 +1,31 @@
+/* This is the global less file. It contains the most general styles */
+
+@import 'import.less';
+
+/* Import Roboto Font */
+@import url(//fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700,700italic);
+
+/* Reset all the styles */
+* {
+    .box-sizing(border-box);
+}
+
+html body {
+    .type-body();
+    height: 100%;
+    margin: 0;
+    color: @color-black;
+    background: @color-white;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+[drawer] {
+    background-color: @color-white;
+}
+
+[main] {
+    background-color: @-; .color-variant(dark, @color-white);
+}
+

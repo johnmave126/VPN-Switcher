@@ -1,0 +1,43 @@
+# General ppp config file for an L2TP/IPSec server
+
+name l2tpd
+
+# Authentication
+# Refuse weak mschap
+# Although mschap v2 has potential attack, however we have already set secure IPSec channel,
+# there is no way for an attacker to sniff this connection.
+auth
+require-mschap-v2
+refuse-mschap
+
+# Use Google DNS
+ms-dns 8.8.8.8
+ms-dns 8.8.4.4
+
+# No escape
+asyncmap 0
+
+# Enable hardware control flow
+crtscts
+modem
+
+# Create a lock file
+lock
+
+# Log is readable by others, hide password
+hide-password
+
+# Log the connection
+debug
+logfile /var/run/xl2tpd.log
+
+# Add entry to ARP table
+proxyarp
+
+# Heartbeat
+lcp-echo-interval 30
+lcp-echo-failure 4
+
+# Add ipparam for script to know this connection
+ipparam vpnclient
+

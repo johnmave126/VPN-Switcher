@@ -1,0 +1,35 @@
+/* This file contains all the globally used libraries, definitions, and mixins.
+ * This file will be imported by global.less once. In any other file, it should
+ * be imported as reference
+ */
+
+/* Libraries */
+@import "lib/lesshat.import.less";
+
+/* Definitions */
+@import "colors.import.less";
+@import "typography.import.less";
+
+/* Primary Color */
+@color-primary: @color-blue;
+
+/* Mixins */
+@deep: ~"/deep/";
+
+/* Less doesn't support Polymer custom style with preceeding double dash(--)
+ * We need to use custom mixin to hack it
+ * Instead of writing
+ * --custom-behaviour: {
+ *     property: value;
+ * }
+ * Write
+ * &{ .polyer-mixin(--custom-behaviour);
+ * @- {
+ *    property: value;
+ * }}
+ */
+//Use lesshat hack
+.polymer-mixin(...) {
+    @-: ~'(function(r){return r||''})((function(){var r = "@{arguments}"; return r=r.replace(/^\[|\]$/g"")})())';
+}
+

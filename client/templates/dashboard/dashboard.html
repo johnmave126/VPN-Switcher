@@ -1,0 +1,20 @@
+<template name="dashboard">
+<paper-drawer-panel>
+    <paper-header-panel mode="waterfall" drawer>
+        <paper-toolbar class="toolbar toolbar-dark">
+            <div>Application</div>
+        </paper-toolbar>
+        {{> dashboard_drawer }}
+    </paper-header-panel>
+    <paper-header-panel mode="waterfall" main>
+        <paper-toolbar class="toolbar toolbar-primary">
+            <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+        </paper-toolbar>
+        <div id="rightContent">
+            {{> loadContent }}
+        </div>
+
+    </paper-header-panel>
+</paper-drawer-panel>
+</template>
+

@@ -1,0 +1,10 @@
+<template name="dashboard_drawer">
+<paper-menu id="dashboard-menu">
+    <paper-submenu class="guide">
+        <paper-icon-item class="menu-trigger">
+            <iron-icon icon="dns" item-icon></iron-icon> VPN Sites
+        </paper-icon-item>
+        {{> dashboard_drawer_VPN parent=null }}
+    </paper-submenu>
+</paper-menu>
+</template>

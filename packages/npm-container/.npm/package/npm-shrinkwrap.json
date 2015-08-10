@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "punt": {
+      "version": "2.3.0",
+      "dependencies": {
+        "amp-message": {
+          "version": "0.1.2",
+          "dependencies": {
+            "amp": {
+              "version": "0.3.1"
+            }
+          }
+        }
+      }
+    },
+    "tmp": {
+      "version": "0.0.26",
+      "dependencies": {
+        "os-tmpdir": {
+          "version": "1.0.1"
+        }
+      }
+    }
+  }
+}

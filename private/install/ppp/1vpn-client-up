@@ -1,0 +1,49 @@
+#!/usr/bin/env node
+
+/**
+  * $Id: 1vpn-client-up, 2015/08/08
+  *
+  * 1vpn-client-up by John Tan 2015
+  *
+  * This script send a connect message to main
+  * VPN switcher server to notify a connection of a
+  * user.
+  */
+
+//Remove 'node' from process.argv
+process.argv.shift();
+
+//Check the 6th parameter PPP_IPPARAM
+//Only send info if PPP_IPPARAM == 'vpnclient'
+if(process.argv[6] !== 'vpnclient') {
+    process.exit(0);
+}
+
+//Push global module repository
+module.paths.push('/usr/local/lib/node_modules');
+//Require IPC module
+var punt = require('punt');
+//Connect to listening server at 3001
+var channel = punt.connect('0.0.0.0:3001');
+//Send info to the server
+channel.send({
+    //Type of the message is clientconnect
+    type: 'clientconnect',
+    //Basically we send parameter 1-5 to server, regardless of usefulness
+    data: {
+        //$1 Interface name PPP_IFACE
+        interface: process.argv[1],
+        //$2 The tty PPP_TTY
+        tty: process.argv[2],
+        //$3 The link speed PPP_SPEED
+        speed: process.argv[3],
+        //$4 Local IP number PPP_LOCAL
+        local_ip: process.argv[4],
+        //$5 Remove IP number PPP_REMOTE
+        remote_ip: process.argv[5]
+    }
+}, function() {
+    //Exit process on finish of the sending
+    process.exit(0);
+});
+
