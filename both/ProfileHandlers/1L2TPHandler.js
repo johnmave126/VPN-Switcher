@@ -7,7 +7,7 @@
 var L2TPHandler = {
     /**
       * assemble
-      * @see{/both/ProfileHandlers/1DefaultHandler.js:DefaultHandler.assemble}
+      * @see{/both/ProfileHandlers/0ProfileHandlerStore.js:DefaultHandler.assemble}
       */
     assemble: function(settings, delta) {
         settings = settings || {};
@@ -35,6 +35,7 @@ var L2TPHandler = {
         return settings;
     }
 };
+var DefaultHandlerProto = Object.create(Object.getPrototypeOf(ProfileHandlerStore['default']));
 
-ProfileHandlerStore.register('l2tp', L2TPHandler);
+ProfileHandlerStore.register('l2tp', _.extend(DefaultHandlerProto, L2TPHandler));
 

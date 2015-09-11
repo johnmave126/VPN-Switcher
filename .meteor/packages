@@ -7,7 +7,6 @@
 meteor-platform
 autopublish
 insecure
-differential:vulcanize@=1.1.0
 less
 meteorhacks:npm
 
@@ -17,3 +16,5 @@ reactive-var
 raix:eventemitter
 meteorhacks:inject-initial
 matb33:collection-hooks
+differential:vulcanize
+msavin:mongol

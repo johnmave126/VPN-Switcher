@@ -1,0 +1,20 @@
+{
+    "polyfill": "/components/webcomponentsjs/webcomponents.min.js",
+    "useShadowDom": true,
+    "imports": [
+        "/components/polymer/polymer.html",
+        "/components/iron-iconset-svg/iron-iconset-svg.html",
+        "/components/iron-icons/iron-icons.html",
+        "/components/paper-dialog/paper-dialog.html",
+        "/components/paper-drawer-panel/paper-drawer-panel.html",
+        "/components/paper-toolbar/paper-toolbar.html",
+        "/components/paper-header-panel/paper-header-panel.html",
+        "/components/paper-icon-button/paper-icon-button.html",
+        "/components/paper-button/paper-button.html",
+        "/components/paper-spinner/paper-spinner.html",
+        "/components/paper-menu/paper-menu.html",
+        "/components/paper-menu/paper-submenu.html",
+        "/components/paper-item/paper-item.html",
+        "/components/paper-item/paper-icon-item.html"
+    ]
+}

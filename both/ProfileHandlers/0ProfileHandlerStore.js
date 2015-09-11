@@ -4,6 +4,22 @@
   * It is very simple, just to store and retrieve handler by name
   */
 
+var DefaultHandler = {
+    /**
+      * assemble
+      * Apply delta to a settings
+      *
+      * @param{Any} settings The settings to be applied
+      * @param{Any} delta The delta to apply
+      *
+      * @return{Any} The result
+      */
+    assemble: function(settings, delta) {
+        //Do nothing since we know nothing
+        return settings;
+    }
+};
+
 ProfileHandlerStore = Object.create({
     /**
      * get
@@ -23,16 +39,20 @@ ProfileHandlerStore = Object.create({
      * @param{Object} handler The handler object
      */
     register: function(name, handler) {
-        this[name] = handler;
+        if(DefaultHandler.isPrototypeOf(handler)) {
+            this[name] = handler;
+        }
     }
 }, {
     length: {
-        configurable: false,
-        enumerable: false,
         get: function() {
             return Object.keys(this).length;
         },
         set: function() { }
+    },
+    default: {
+        enumerable: true,
+        value: Object.create(DefaultHandler)
     }
 });
 

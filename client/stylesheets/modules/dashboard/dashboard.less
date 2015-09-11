@@ -22,11 +22,11 @@
     .menu-trigger {
         cursor: default;
     }
-    .leaf {
+    paper-item.leaf {
         cursor: pointer;
     }
-    & > paper-submenu {
-        & > .menu-trigger {
+    & > paper-submenu, & > .paper-menu > paper-submenu {
+        & > .menu-trigger, & > .paper-submenu > .menu-trigger {
             &{ border-bottom: 1px solid @-; .color-variant(lighter, @color-grey); }
             &.iron-selected {
                 &{ color: @-; .color-variant(dark, @color-darkgreen); }

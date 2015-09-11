@@ -29,7 +29,7 @@ var _pppopt = [
     'connect-delay 5000'
 ];
 
-L2TP = Object.create({}, {
+L2TP = Object.create({
     /**
      * add
      * Add a new lac server to L2TP
